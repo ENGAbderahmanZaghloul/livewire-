@@ -2,12 +2,36 @@
 
 namespace App\Livewire;
 
+use App\Models\TheUsers;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class Users extends Component
 {
+    // #[Validate('required|min:2')]
+    // public $name = '';
+    // #[Validate('required|min:2|email|unique:users,email')]
+    // public $email='';
+    // #[Validate('required|min:2')]
+    // public $password='';
+    public $name = '';
+    public $email = '';
+    public $password = '';
+    public function save(){
+        $this->validate([
+            'name'=>'required|min:2',
+            'email'=>'required|min:2|email|unique:the_users,email',
+            'password'=>'required|min:2',
+        ]);
+        TheUsers::create([
+            'name'=>$this->name,
+            'email'=>$this->email,
+            'password'=>$this->password
+        ]);
+        $this->reset(['name','email','password']);
+    }
     public function render()
     {
-        return view('livewire.users');
+        return view('livewire.users',['users'=>TheUsers::all()]);
     }
 }
