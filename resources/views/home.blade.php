@@ -10,10 +10,14 @@
 
 </head>
 
-<body>
-    <section>
-        <livewire:greeter />
+<body style="background-color: #252525; color: white"
+    class="min-h-screen w-full bg-black dark:bg-[#0a0a0a] text-white flex items-center justify-center p-4">
+    <section >
+        <livewire:Users />
     </section>
+
+
+
 </body>
 
 </html>
