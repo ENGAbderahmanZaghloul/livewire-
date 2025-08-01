@@ -6,6 +6,7 @@ use App\Models\TheUsers;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
+
 class Users extends Component
 {
     // #[Validate('required|min:2')]

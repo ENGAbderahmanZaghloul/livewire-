@@ -2,11 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
-
+use App\Livewire\Users;
+use App\Livewire\Articles;
+use App\Livewire\Product;
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('/users',Users::class)->name('users');
+Route::get('/articles',Articles::class)->name('articles');
+Route::get('/product',Product::class)->name('product');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
