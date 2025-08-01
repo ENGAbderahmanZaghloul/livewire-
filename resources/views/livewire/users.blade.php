@@ -31,7 +31,7 @@
                     @enderror
                 </flux:field>
 
-                <flux:button wire:click="save" type="submit" class="mt-5 w-fit bg-blue-700 cursor-pointer">Submit
+                <flux:button wire:click="save"  class="mt-5 w-fit bg-blue-700 cursor-pointer">Submit
                 </flux:button>
 
             </div>
