@@ -6,6 +6,7 @@ use App\Models\TheUsers;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
+use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
 
 class Users extends Component
 {
@@ -19,6 +20,25 @@ class Users extends Component
     public $email = '';
     public $password = '';
     public $alert = true;
+
+    // public function onSaveUser(){
+    //     LivewireAlert::title('Save User?')
+    //     ->text('Are You Sure?')
+    //     ->question()
+    //     ->withConfirmButton('Save')
+    //     ->onConfirm('SaveUser')
+    //     ->withCancelButton('Cancel')
+    //     ->onDismiss('canceled')
+    //     ->timer(9000)
+    //     ->show();
+    // }
+    // public function onCancel(){
+    //     LivewireAlert::title('Delete?')
+    //     ->withConfirmButton('Delete')
+    //     ->withCancelButton('Keep')
+    //     ->onDismiss('cancelDelete')
+    //     ->show();
+    // }
     public function save(){
         $this->validate([
             'name'=>'required|min:2',
