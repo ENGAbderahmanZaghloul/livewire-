@@ -5,7 +5,7 @@ namespace App\Livewire;
 use App\Models\TheUsers;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
-
+use Illuminate\Support\Facades\Session;
 
 class Users extends Component
 {
@@ -18,6 +18,7 @@ class Users extends Component
     public $name = '';
     public $email = '';
     public $password = '';
+    public $alert = true;
     public function save(){
         $this->validate([
             'name'=>'required|min:2',
@@ -30,7 +31,13 @@ class Users extends Component
             'password'=>$this->password
         ]);
         $this->reset(['name','email','password']);
+        // to add alert message we use helper func from session
+        session::flash('success', "User Added succesfully");
     }
+    public function close(){
+            $this->alert = false;
+    }
+
     public function render()
     {
         return view('livewire.users',['users'=>TheUsers::all()]);
