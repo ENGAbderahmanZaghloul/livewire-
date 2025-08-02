@@ -8,10 +8,11 @@ class Articles extends Component
 {
 
         public $content = '';
+        public $title = '';
 
         public function updateSearch(){
             Article::create([
-                // 'title' =>$this->title,
+                'title' =>$this->title,
                 'content' =>$this->content
             ]);
             $this ->reset(['title','content']);

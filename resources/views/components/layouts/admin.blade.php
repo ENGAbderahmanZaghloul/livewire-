@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>{{ $title ? $title : 'Livewire' }}</title>
     @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -20,20 +20,11 @@
             </div>
             <ul class="flex gap-5">
                 <li>
-                    {{-- we use request to check active becausre -> livewire delete / from request so we use wire:current and home not alivewire  --}}
-                    <a href="/" class="text-xl @if (request()->is('/')) font-bold text-black @endif">Home</a>
-                </li>
-                {{-- <li>
-                <a href="/users" wire:navigate>Users</a>
-            </li> --}}
-                <li>
-                    <a href="/users" class="text-xl" wire:current="font-bold text-black">Users</a>
-                </li>
-                <li>
-                    <a href="/articles" class="text-xl" wire:current="font-bold text-black">Articles</a>
-                </li>
-                <li>
                     <a href="/dashboard" class="text-xl" wire:current="font-bold text-black">Admin Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="/dashboard/article-admin" class="text-xl" wire:current="font-bold text-black">Article</a>
                 </li>
             </ul>
         </nav>

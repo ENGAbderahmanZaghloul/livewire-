@@ -4,11 +4,12 @@
         <input type="search" wire:model.live="content" class="border px-4 py-2 rounded-lg w-1/2 ">
     </form>
 
-    <ul class="mt-8 space-y-2 list-disc list-inside">
+    <ul class="mt-8 space-y-2 mx-auto w-1/2 ">
         @forelse ($articles as $article)
             @if ($article->content !== '')
-                <li class="mb-5">
-                    {{ $article->content }}
+                <li class="mb-5 border-b border-gray-500 py-2 ">
+                    <h2 class="text-xl font-bold">{{ $article->title }}</h2>
+                    <p class="text-gray-500">{{ $article->content }}</p>
                 </li>
             @endif
         @empty
