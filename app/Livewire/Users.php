@@ -61,7 +61,10 @@ class Users extends Component
     public function close(){
             $this->alert = false;
     }
-
+    public function delete(TheUsers $user){
+        $user->delete();
+        $this->redirect('/users', navigate: true);
+    }
     public function render()
     {
         return view('livewire.users',['users'=>TheUsers::all()]);

@@ -55,7 +55,7 @@
 
 
     <div
-        class="mt-5 w-2xl overflow-hidden mx-auto overflow-x-auto rounded-sm border border-neutral-300 dark:border-neutral-700">
+        class="mt-5 w-[1000px] overflow-hidden mx-auto overflow-x-auto rounded-sm border border-neutral-300 dark:border-neutral-700">
         <table class="w-full text-left text-sm text-neutral-600 dark:text-neutral-300">
             <thead
                 class="border-b border-neutral-300 bg-neutral-400 text-sm text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white">
@@ -70,12 +70,13 @@
                 @foreach ($users as $user)
                     <tr>
                         <td class="p-4">{{ $user->id }}</td>
-                        <td class="p-4">{{ $user->name }}</td>
-                        <td class="p-4">{{ $user->email }}</td>
-                        <td class="p-4">
-                            <a href="{{ route('manage-users', $user->id) }}" 
-                                class=" cursor-pointer bg-blue-700">Edit</a>
-                            <flux:button type="button" class="cursor-pointer bg-red-700">Delete</flux:button>
+                        <td class="p-4 text-lg font-medium text-white">{{ $user->name }}</td>
+                        <td class="p-4 text-lg font-medium text-white">{{ $user->email }}</td>
+                        <td class="p-4 flex gap-2 items-center justify-center">
+                            <a href="{{ route('manage-users', $user->id) }}"
+                                class=" cursor-pointer bg-blue-500 px-4 py-2 rounded-lg text-white">Edit</a>
+                            <button type="button" wire:click="delete({{ $user->id }})"
+                                class="cursor-pointer bg-red-700 px-4 py-2 rounded-lg text-white">Delete</button>
                         </td>
                     </tr>
                 @endforeach

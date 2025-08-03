@@ -22,6 +22,16 @@
                 @enderror
             </div>
         </div>
+        <div class="flex  items-center gap-5">
+            <div class="flex flex-col gap-2">
+                <label for="password">Password:</label>
+                <input type="text" name="password" wire:model="password"
+                    class="border p-2 rounded-lg w-full">
+                @error('password')
+                    <span class="text-red-600">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
 
         <button type="submit"
             class="bg-blue-500 p-2 rounded-lg cursor-pointer">Edit</button>
