@@ -6,6 +6,7 @@ use App\Livewire\Users;
 use App\Livewire\Articles;
 use App\Livewire\Dashboard;
 use App\Livewire\ArticleAdmin;
+use App\Livewire\ManageUsers;
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -14,6 +15,7 @@ Route::get('/users',Users::class)->name('users');
 Route::get('/articles',Articles::class)->name('articles');
 Route::get('/dashboard',Dashboard::class)->name('dashboard');
 Route::get('/dashboard/article-admin',ArticleAdmin::class)->name('article-admin');
+Route::get('/users/{user}/manage-users',ManageUsers::class)->name('manage-users');
 
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified'])

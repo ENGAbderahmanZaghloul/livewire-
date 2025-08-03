@@ -8,6 +8,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Session;
 use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
 
+
 class Users extends Component
 {
     // #[Validate('required|min:2')]
@@ -16,10 +17,12 @@ class Users extends Component
     // public $email='';
     // #[Validate('required|min:2')]
     // public $password='';
+
     public $name = '';
     public $email = '';
     public $password = '';
     public $alert = true;
+
 
     // public function onSaveUser(){
     //     LivewireAlert::title('Save User?')
@@ -39,6 +42,7 @@ class Users extends Component
     //     ->onDismiss('cancelDelete')
     //     ->show();
     // }
+
     public function save(){
         $this->validate([
             'name'=>'required|min:2',

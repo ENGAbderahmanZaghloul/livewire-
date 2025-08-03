@@ -34,20 +34,20 @@
 
         </div>
         @if (session('success') && $alert)
-        <div class="flex  flex-col gap-5 items-center bg-green-50 border border-green-200 text-green-800 text-sm rounded-lg px-4 py-6 w-[300px] h-fit absolute right-[40%] top-[350px] mx-auto mb-4 shadow-sm"
-            role="alert">
-            <button type="button"
-                class="absolute top-3 right-3 cursor-pointer bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                wire:click="close">
-                X
-            </button>
-            <svg class="w-20 h-20 mr-2 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd" />
-            </svg>
-            <span class="font-medium text-xl">{{ session('success') }}</span>
-        </div>
+            <div class="flex  flex-col gap-5 items-center bg-green-50 border border-green-200 text-green-800 text-sm rounded-lg px-4 py-6 w-[300px] h-fit absolute right-[40%] top-[350px] mx-auto mb-4 shadow-sm"
+                role="alert">
+                <button type="button"
+                    class="absolute top-3 right-3 cursor-pointer bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                    wire:click="close">
+                    X
+                </button>
+                <svg class="w-20 h-20 mr-2 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span class="font-medium text-xl">{{ session('success') }}</span>
+            </div>
         @endif
 
     </form>
@@ -73,12 +73,14 @@
                         <td class="p-4">{{ $user->name }}</td>
                         <td class="p-4">{{ $user->email }}</td>
                         <td class="p-4">
-                            <flux:button type="button" class="bg-blue-700">Edit</flux:button>
-                            <flux:button type="button" class="bg-red-700">Delete</flux:button>
+                            <a href="{{ route('manage-users', $user->id) }}" 
+                                class=" cursor-pointer bg-blue-700">Edit</a>
+                            <flux:button type="button" class="cursor-pointer bg-red-700">Delete</flux:button>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
     </div>
 </div>
