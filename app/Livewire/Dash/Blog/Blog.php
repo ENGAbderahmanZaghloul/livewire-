@@ -6,8 +6,9 @@ use App\Models\BlogPost;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
+use Livewire\Attributes\Lazy;
 
-
+#[Lazy]
 #[Layout('components.layouts.admin')]
 #[Title('Blog')]
 class Blog extends Component
@@ -17,7 +18,9 @@ class Blog extends Component
     public $status ='';
     public $type ='';
     public $level ='';
-
+public function mount (){
+    sleep(3);
+}
     protected $listeners = ['filterUpdated' => 'updateFilters'];
 
     public function updateFilters($filter)
