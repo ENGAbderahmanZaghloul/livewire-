@@ -3,6 +3,7 @@
 namespace App\Livewire\Dash\Blog;
 
 use Livewire\Component;
+use App\Models\BlogPost;
 
 class FilterBlog extends Component
 {
@@ -11,7 +12,7 @@ class FilterBlog extends Component
     public $type = '';
     public $level = '';
 
-    public function updated($field)
+    public function updated()
     {
         $this->dispatch('filterUpdated', [
             'search' => $this->search,
