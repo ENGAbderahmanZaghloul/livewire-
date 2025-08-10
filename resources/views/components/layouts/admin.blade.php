@@ -16,7 +16,7 @@
     <main>
         <nav class="flex justify-between items-center  bg-zinc-600 shadow-lg shadow-zinc-800 px-8 py-5">
             <div>
-                <h1 class="text-3xl font-extrabold">Livewire</h1>
+                <h1 wire:navigate href="{{ route('home') }}" class="text-3xl font-extrabold cursor-pointer">Livewire</h1>
             </div>
             <ul class="flex gap-5">
                 <li>
