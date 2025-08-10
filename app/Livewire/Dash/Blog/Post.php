@@ -12,7 +12,7 @@ class Post extends Component
 {
     #[Validate(['required', 'min:2', 'max:10'])]
     public $title;
-    #[Validate(['required', 'min:2', 'max:150'])]
+    #[Validate(['required', 'min:2', 'max:30'])]
     public $content;
     #[Validate(['required'])]
     public $status = 'published';

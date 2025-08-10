@@ -13,14 +13,17 @@ use Livewire\Attributes\Lazy;
 #[Title('Blog')]
 class Blog extends Component
 {
-
+    public $postId ;
     public $search ='';
     public $status ='';
     public $type ='';
     public $level ='';
-public function mount (){
-    sleep(3);
-}
+    public $title ='';
+    public $content ='';
+    public $show = false;
+// public function mount (){
+//     sleep(1);
+// }
     protected $listeners = ['filterUpdated' => 'updateFilters'];
 
     public function updateFilters($filter)
@@ -31,6 +34,34 @@ public function mount (){
         $this->level = $filter['level'];
     }
 
+    public function showPost(BlogPost $post){
+        $this->show = true;
+        $this->postId = $post->id;
+        $this->title = $post->title;
+        $this->content = $post->content;
+        $this->status = $post->status;
+        $this->type = $post->type;
+        $this->level = $post->level;
+
+    }
+
+    public function updatePost(){
+        // to get the id you open
+        $post = BlogPost::findOrFail($this->postId);
+        $post->update([
+            'title' => $this->title,
+            'content' => $this->content,
+            'status' => $this->status,
+            'type' => $this->type,
+            'level' => $this->level,
+        ]);
+        $this->show = false;
+    }
+
+    public function deletePost(BlogPost $post){
+        $post->delete();
+
+    }
     public function render()
     {
         $posts = BlogPost::query()
