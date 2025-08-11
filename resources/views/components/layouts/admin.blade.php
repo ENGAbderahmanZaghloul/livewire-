@@ -19,6 +19,7 @@
                 <h1 wire:navigate href="{{ route('home') }}" class="text-3xl font-extrabold cursor-pointer">Livewire</h1>
             </div>
             <ul class="flex gap-5">
+                @auth
                 <li>
                     <a href="/dashboard" class="text-xl" wire:current="font-bold text-black">Admin Dashboard</a>
                 </li>
@@ -26,6 +27,7 @@
                 <li>
                     <a href="/dashboard/article-admin" class="text-xl" wire:current="font-bold text-black">Article</a>
                 </li>
+                @endauth
             </ul>
         </nav>
 
