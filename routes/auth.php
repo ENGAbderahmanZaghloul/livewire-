@@ -3,7 +3,7 @@
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
-
+use Illuminate\Support\Facades\Auth;
 Route::middleware('guest')->group(function () {
     Volt::route('login', 'auth.login')
         ->name('login');
@@ -16,6 +16,7 @@ Route::middleware('guest')->group(function () {
 
     Volt::route('reset-password/{token}', 'auth.reset-password')
         ->name('password.reset');
+
 
 });
 
@@ -31,5 +32,11 @@ Route::middleware('auth')->group(function () {
         ->name('password.confirm');
 });
 
-Route::post('logout', App\Livewire\Actions\Logout::class)
-    ->name('logout');
+
+Route::get('logout',function(){
+    Auth::logout();
+    return redirect()->route('login');
+})
+->name('logout');
+// Route::get('logout', App\Livewire\Actions\Logout::class)
+// ->name('logout');

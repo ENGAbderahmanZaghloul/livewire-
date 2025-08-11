@@ -7,26 +7,37 @@ use App\Livewire\Articles;
 use App\Livewire\Dashboard;
 use App\Livewire\ArticleAdmin;
 use App\Livewire\ManageUsers;
+use App\Livewire\Dash\Blog\Blog;
+use App\Livewire\Dash\Blog\Post;
+use App\Livewire\Product;
+use App\Livewire\Auth\Login;
+use App\Livewire\Actions\Logout;
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
 Route::get('/users',Users::class)->name('users');
 Route::get('/articles',Articles::class)->name('articles');
-Route::get('/dashboard',Dashboard::class)->name('dashboard');
-Route::get('/dashboard/article-admin',ArticleAdmin::class)->name('article-admin');
+// Route::get('/dashboard',Dashboard::class)->name('dashboard');
+// Route::get('/dashboard/article-admin',ArticleAdmin::class)->name('article-admin');
 Route::get('/users/{user}/manage-users',ManageUsers::class)->name('manage-users');
-
-// Route::view('dashboard', 'dashboard')
-//     ->middleware(['auth', 'verified'])
+// Route::get('/dashboard/blog',Blog::class)->name('blog');
+// Route::get('/dashboard/blog/post',Post::class)->name('post');
+Route::get('/product',Product::class)->name('product');
+// Route::get('/login',Login::class)->name('login');
+// Route::middleware(['auth', 'verified'])
 //     ->name('dashboard');
 
-// Route::middleware(['auth'])->group(function () {
-//     Route::redirect('settings', 'settings/profile');
-
-//     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
-//     Volt::route('settings/password', 'settings.password')->name('settings.password');
-//     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
-// });
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard',Dashboard::class)->name('dashboard');
+    Route::get('/dashboard/article-admin',ArticleAdmin::class)->name('article-admin');
+    Route::get('/dashboard/blog',Blog::class)->name('blog');
+    Route::get('/dashboard/blog/post',Post::class)->name('post');
+    Route::redirect('settings', 'settings/profile');
+    Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
+    Volt::route('settings/password', 'settings.password')->name('settings.password');
+    Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
+});
 
 require __DIR__.'/auth.php';

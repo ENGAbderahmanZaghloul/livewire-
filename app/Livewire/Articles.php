@@ -4,12 +4,16 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Article;
+use Livewire\Attributes\Lazy;
+#[Lazy]
 class Articles extends Component
 {
 
         public $content = '';
         public $title = '';
-
+        public function mount (){
+            sleep(3);
+        }
         public function updateSearch(){
             Article::create([
                 'title' =>$this->title,
