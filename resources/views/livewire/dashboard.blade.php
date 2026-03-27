@@ -1,3 +1,3 @@
-<div>
-    {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
+<div class="mt-10 pl-5">
+    <livewire:dash.dash />
 </div>
