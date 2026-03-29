@@ -12,7 +12,8 @@
 </head>
 
 <body style="background-color: #252525; color: white"
-    class="min-h-screen w-full bg-black dark:bg-[#0a0a0a] text-white mx-auto  ">
+    class="min-h-screen w-full bg-black dark:bg-[#0a0a0a] text-white mx-auto font-sans">
+    @yield('content')
     <main>
         <nav class="flex justify-between items-center  bg-zinc-600 shadow-lg shadow-zinc-800 px-8 py-5">
             <div>
